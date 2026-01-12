@@ -91,7 +91,7 @@ FROM retail_sales_analysis;
 
 ```
 
-### 3. Data Analysis & Findings
+### 3. Data Analysis & Findings (Business problems)
 
 The following SQL queries were developed to answer specific business questions:
 
@@ -112,16 +112,18 @@ FROM retail_sales_analysis;
 -- we had 155 customers buying from our shop.
 
 ```
- **Write a SQL query to retrieve all columns for sales made on '2022-11-05**
+ **Checking number of different product categories**
 ```
+SELECT COUNT(DISTINCT category)
+FROM retail_sales_analysis;
+-- we have 3 different product categories
+
 ```
- **Write a SQL query to retrieve all columns for sales made on '2022-11-05**
+
+1. **Retrieving sales on the 2022-11-05**:
 ```
-```
-1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
-```sql
 SELECT *
-FROM retail_sales
+FROM retail_sales_analysis
 WHERE sale_date = '2022-11-05';
 ```
 
