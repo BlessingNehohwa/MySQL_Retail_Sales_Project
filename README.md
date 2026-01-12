@@ -146,7 +146,7 @@ GROUP BY category;
 
 ```
 
-4. **Average age of customers who purchased beaty items **:
+4. **Average age of customers who purchased beaty items**:
 ```
 SELECT ROUND( AVG(age),2) Average_Buyer_Age_Beauty -- used round function to round off the age decimals
 FROM retail_sales_analysis
@@ -154,24 +154,30 @@ WHERE category='beauty';
 --40.42 years
 ```
 
-5. **Write a SQL query to find all transactions where the total_sale is greater than 1000.**:
-```sql
-SELECT * FROM retail_sales
-WHERE total_sale > 1000
+5. **Total sales is  greater than 1000**:
+```
+SELECT *
+FROM retail_sales_analysis
+WHERE total_sales>1000;
+
 ```
 
-6. **Write a SQL query to find the total number of transactions (transaction_id) made by each gender in each category.**:
-```sql
-SELECT 
-    category,
+6. **Transactions made by each gender in each category.**:
+```
+SELECT
+	category,
     gender,
     COUNT(*) as total_trans
-FROM retail_sales
+FROM retail_sales_analysis
 GROUP 
-    BY 
+	BY 
     category,
     gender
-ORDER BY 1
+ORDER by 1;
+
+SELECT *
+FROM retail_sales_analysis;
+
 ```
 
 7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
