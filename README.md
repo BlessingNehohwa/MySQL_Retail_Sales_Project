@@ -44,21 +44,21 @@ CREATE TABLE retail_sales_analysis
 - **Null Value Check**: Check for any null values in the dataset and delete records with missing data.
 
 ```sql
-SELECT COUNT(*) FROM retail_sales;
-SELECT COUNT(DISTINCT customer_id) FROM retail_sales;
-SELECT DISTINCT category FROM retail_sales;
 
-SELECT * FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+SELECT 
+		COUNT(*)
+FROM retail_sales_analysis;
 
-DELETE FROM retail_sales
-WHERE 
-    sale_date IS NULL OR sale_time IS NULL OR customer_id IS NULL OR 
-    gender IS NULL OR age IS NULL OR category IS NULL OR 
-    quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
+SELECT *
+FROM retail_sales_analysis;
+
+-- CHECKING FOR DUPLICATES
+SELECT *,
+ROW_NUMBER () OVER(
+PARTITION BY transaction_id, sale_date,sale_time, customer_id,gender,age,category,quantity, price_per_unit,cogs,total_sales) AS row_num
+FROM retail_sales_analysis;  -- If there are no duplicates it means there is duplicates
+
+
 ```
 
 ### 3. Data Analysis & Findings
