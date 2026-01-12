@@ -95,6 +95,22 @@ FROM retail_sales_analysis;
 
 The following SQL queries were developed to answer specific business questions:
 
+ **Checking how many total transcations we had for the period**
+```
+SELECT COUNT(*)
+AS total_sales 
+FROM retail_sales_analysis;    -- we  have 1987 total transactions
+
+```
+ **Write a SQL query to retrieve all columns for sales made on '2022-11-05**
+```
+```
+ **Write a SQL query to retrieve all columns for sales made on '2022-11-05**
+```
+```
+ **Write a SQL query to retrieve all columns for sales made on '2022-11-05**
+```
+```
 1. **Write a SQL query to retrieve all columns for sales made on '2022-11-05**:
 ```sql
 SELECT *
