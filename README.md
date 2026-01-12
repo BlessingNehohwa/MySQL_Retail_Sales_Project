@@ -99,11 +99,18 @@ The following SQL queries were developed to answer specific business questions:
 ```
 SELECT COUNT(*)
 AS total_sales 
-FROM retail_sales_analysis;    -- we  have 1987 total transactions
+FROM retail_sales_analysis;
+
+-- we  have 1987 total transactions
 
 ```
- **Write a SQL query to retrieve all columns for sales made on '2022-11-05**
+ **How many unique customers do we have in the dataset**
 ```
+SELECT  COUNT(DISTINCT customer_id)
+FROM retail_sales_analysis;
+
+-- we had 155 customers buying from our shop.
+
 ```
  **Write a SQL query to retrieve all columns for sales made on '2022-11-05**
 ```
