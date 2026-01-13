@@ -215,7 +215,7 @@ WHERE r_ank < 6;
 
 
 
-8. ** **:
+8. **Top 5 customers based on the highest total sales **:
 ```sql
 SELECT 
     customer_id,
