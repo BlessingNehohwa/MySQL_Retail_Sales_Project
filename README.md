@@ -180,7 +180,7 @@ FROM retail_sales_analysis;
 
 ```
 
-7. **Write a SQL query to calculate the average sale for each month. Find out best selling month in each year**:
+7. ****:
 ```sql
 SELECT 
        year,
