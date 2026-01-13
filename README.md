@@ -180,24 +180,40 @@ FROM retail_sales_analysis;
 
 ```
 
-7. ****:
-```sql
-SELECT 
-       year,
-       month,
-    avg_sale
-FROM 
-(    
-SELECT 
-    EXTRACT(YEAR FROM sale_date) as year,
-    EXTRACT(MONTH FROM sale_date) as month,
-    AVG(total_sale) as avg_sale,
-    RANK() OVER(PARTITION BY EXTRACT(YEAR FROM sale_date) ORDER BY AVG(total_sale) DESC) as rank
-FROM retail_sales
-GROUP BY 1, 2
-) as t1
-WHERE rank = 1
+7. **The average sale for each month and finding out the best selling month in each year**:
 ```
+SELECT 
+	YEAR (sale_date)  year,
+	MONTH(sale_date)  month,
+	ROUND(AVG (total_sales),2) as avg_sales
+FROM retail_sales_analysis
+GROUP BY 1,2
+ORDER BY 1,3 DESC;
+
+-- This shows the month with the highest average sales in each year in descending order
+
+SELECT 
+	YEAR (sale_date)  year, 
+	MONTH(sale_date)  month,
+	ROUND(AVG (total_sales),2) as avg_sales,
+    RANK() OVER( PARTITION BY YEAR (sale_date) ORDER BY AVG(total_sales) DESC) r_ank
+FROM retail_sales_analysis
+GROUP BY 1,2;    -- Created average sales ranking order per year
+
+SELECT *
+FROM       -- Creating a CTE
+(
+	SELECT 
+		YEAR (sale_date)  year, 
+		MONTH(sale_date)  month,
+		ROUND(AVG (total_sales),2) as avg_sales,
+		RANK() OVER( PARTITION BY YEAR (sale_date) ORDER BY AVG(total_sales) DESC) r_ank
+	FROM retail_sales_analysis
+	GROUP BY 1,2
+) as t1
+WHERE r_ank < 6;
+
+
 
 8. **Write a SQL query to find the top 5 customers based on the highest total sales **:
 ```sql
