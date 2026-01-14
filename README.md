@@ -180,7 +180,7 @@ FROM retail_sales_analysis;
 
 ```
 
-7. **The average sale for each month and finding out the best selling month in each year**:
+7. **The average sale for each month and finding out the best selling month in each**:
 ```
 SELECT 
 	YEAR (sale_date)  year,
