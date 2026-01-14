@@ -236,7 +236,7 @@ FROM retail_sales
 GROUP BY category
 ```
 
-10. **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between 12 & 17, E)**:
+10. **Write a SQL query to create each shift and number of orders (Example Morning <12, Afternoon Between**:
 ```sql
 WITH hourly_sale
 AS
