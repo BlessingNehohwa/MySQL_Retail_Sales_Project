@@ -236,7 +236,7 @@ FROM retail_sales
 GROUP BY category
 ```
 
-10. **Write a SQL query to create each shift and number of orders **:
+10. **Write a SQL query to create each shift and numbe**:
 ```sql
 WITH hourly_sale
 AS
