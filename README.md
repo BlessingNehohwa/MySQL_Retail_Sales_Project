@@ -236,24 +236,42 @@ FROM retail_sales
 GROUP BY category
 ```
 
-10. **    **:
-```sql
-WITH hourly_sale
+10. **Create shifts Morning <= 12:00 ,afternoon between 12:00 & 17:00 evening >17:00**:
+```
+-- I create a logical condition and created another column SHIFT
+
+SELECT *,
+	CASE 
+		WHEN HOUR(sale_time) <12  THEN 'Morning'
+        WHEN HOUR(sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
+        ELSE 'Evening'
+	END as shift
+FROM retail_sales_analysis;
+
+
+**Create a CTE**: 
+
+WITH hourly_sales
 AS
 (
 SELECT *,
-    CASE
-        WHEN EXTRACT(HOUR FROM sale_time) < 12 THEN 'Morning'
-        WHEN EXTRACT(HOUR FROM sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
-        ELSE 'Even
-    END as shift
-FROM retail_sales
+	CASE 
+		WHEN HOUR(sale_time) <12  THEN 'Morning'
+        WHEN HOUR(sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
+        ELSE 'Evening'
+	END as shift
+FROM retail_sales_analysis
 )
 SELECT 
-    shift,
-    COUNT(*) as total_orders    
-FROM hourly_sale
-GROUP BY shift
+	shift,
+	COUNT(*) AS total_orders
+FROM hourly_sales
+GROUP BY shift ;
+
+
+-- END OF PROJECT
+
+
 ```
 
 ## Findings
