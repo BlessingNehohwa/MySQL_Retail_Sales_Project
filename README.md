@@ -213,9 +213,8 @@ FROM       -- Creating a CTE
 ) as t1
 WHERE r_ank < 6;
 
-
-
-#####Top 5 customers based on the highest total sales 
+```
+8. **Top 5 customers based on the highest total sales**: 
 
 ```
 SELECT 
@@ -227,7 +226,6 @@ ORDER BY 2 DESC
 LIMIT 5;
 
 ```
-
 9. **Write a SQL query to find the number of unique customers who purchased items from each category**:
 ```sql
 SELECT 
