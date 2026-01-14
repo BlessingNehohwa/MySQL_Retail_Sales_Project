@@ -236,7 +236,7 @@ FROM retail_sales
 GROUP BY category
 ```
 
-10. **Write a SQL query to create each shift**:
+10. **    **:
 ```sql
 WITH hourly_sale
 AS
@@ -245,7 +245,7 @@ SELECT *,
     CASE
         WHEN EXTRACT(HOUR FROM sale_time) < 12 THEN 'Morning'
         WHEN EXTRACT(HOUR FROM sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
-        ELSE 'Evening'
+        ELSE 'Even
     END as shift
 FROM retail_sales
 )
