@@ -1,4 +1,4 @@
-# MySQL_Retail_Sales_Pro
+# MySQL_Retail_Sales_Pr
 
 ## Project Overview
 **Project Title**: Retail Sales Analysis  
